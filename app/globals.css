@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #dbeafe;
+  --muted: #9ca3af;
+  --card: #f9fafb;
+  --card-border: #e5e7eb;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #e5e7eb;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-light: #1e3a5f;
+  --muted: #6b7280;
+  --card: #111111;
+  --card-border: #1f2937;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@utility container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
