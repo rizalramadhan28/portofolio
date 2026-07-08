@@ -20,20 +20,20 @@ export const skills = {
   Frontend: [
     { name: "React", icon: "SiReact" },
     { name: "Next.js", icon: "SiNextdotjs" },
-    { name: "TypeScript", icon: "SiTypescript" },
     { name: "Tailwind CSS", icon: "SiTailwindcss" },
     { name: "HTML/CSS", icon: "SiHtml5" },
     { name: "JavaScript", icon: "SiJavascript" },
   ],
   Backend: [
     { name: "Node.js", icon: "SiNodedotjs" },
+    { name: "Express", icon: "SiExpress" },
     { name: "MySQL", icon: "SiMysql" },
     { name: "MariaDB", icon: "SiMariadb" },
+    { name: "REST API", icon: "SiPostman" },
+    { name: "Prisma", icon: "SiPrisma" },
   ],
   Networking: [
     { name: "Cisco", icon: "SiCisco" },
-    { name: "Linux", icon: "SiLinux" },
-    { name: "Cloud", icon: "SiCloudflare" },
     { name: "Security", icon: "SiSecurityscorecard" },
   ],
   Tools: [
