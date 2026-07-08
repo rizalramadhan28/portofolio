@@ -27,17 +27,12 @@ export const skills = {
   ],
   Backend: [
     { name: "Node.js", icon: "SiNodedotjs" },
-    { name: "Express", icon: "SiExpress" },
-    { name: "PostgreSQL", icon: "SiPostgresql" },
-    { name: "MongoDB", icon: "SiMongodb" },
-    { name: "REST API", icon: "SiPostman" },
-    { name: "Prisma", icon: "SiPrisma" },
+    { name: "MySQL", icon: "SiMysql" },
+    { name: "MariaDB", icon: "SiMariadb" },
   ],
   Networking: [
     { name: "Cisco", icon: "SiCisco" },
     { name: "Linux", icon: "SiLinux" },
-    { name: "Docker", icon: "SiDocker" },
-    { name: "Nginx", icon: "SiNginx" },
     { name: "Cloud", icon: "SiCloudflare" },
     { name: "Security", icon: "SiSecurityscorecard" },
   ],
@@ -45,9 +40,7 @@ export const skills = {
     { name: "Git", icon: "SiGit" },
     { name: "VS Code", icon: "SiVisualstudiocode" },
     { name: "Figma", icon: "SiFigma" },
-    { name: "Postman", icon: "SiPostman" },
     { name: "Vercel", icon: "SiVercel" },
-    { name: "Linux Bash", icon: "SiGnubash" },
   ],
 };
 
