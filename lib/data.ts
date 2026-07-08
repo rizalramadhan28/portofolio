@@ -84,11 +84,11 @@ export const projects = [
 export const experiences = [
   {
     type: "education",
-    title: "Informatics Engineering",
-    organization: "University of Indonesia",
+    title: "Informatics",
+    organization: "University Singaperbangsa Karawang",
     period: "2022 - Present",
     description:
-      "Studying informatics engineering with focus on software development and computer networking.",
+      "Studying informatics with focus on software development and computer networking.",
   },
   {
     type: "organization",
