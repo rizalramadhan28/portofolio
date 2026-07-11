@@ -9,7 +9,7 @@ export const personalData = {
   email: "muhamadrizalramadhan28@gmail.com",
   location: "Indonesia",
   social: {
-    github: "https://github.com/rizalramadhan",
+    github: "https://github.com/rizalramadhan28",
     linkedin: "https://linkedin.com/in/rizalramadhan",
     email: "mailto:muhamadrizalramadhan28@gmail.com",
     whatsapp: "https://wa.me/6281293431634",
