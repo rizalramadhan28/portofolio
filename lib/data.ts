@@ -75,6 +75,14 @@ export const projects = [
     demoUrl: "https://demo.example.com",
     githubUrl: "https://github.com/rizalramadhan/taskapp",
   },
+  {
+    title: "Sapa Desa Wadas",
+    description:
+      "Platform digital desa Wadas dengan fitur login dan panel admin untuk pengelolaan data layanan masyarakat desa.",
+    image: "/images/projects/sapa-desa.jpg",
+    tags: ["PHP", "MySQL", "Bootstrap", "Admin Panel"],
+    demoUrl: "https://sapa-desawadas.infinityfreeapp.com/public/login",
+  },
 ];
 
 export const experiences = [
