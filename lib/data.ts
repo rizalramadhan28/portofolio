@@ -79,7 +79,7 @@ export const projects = [
     title: "Sapa Desa Wadas",
     description:
       "Platform digital desa Wadas dengan fitur login dan panel admin untuk pengelolaan data layanan masyarakat desa.",
-    image: "/images/projects/sapa-desa.jpg",
+    image: "/images/projects/sapa-desa.jpg.png",
     tags: ["PHP", "MySQL", "Bootstrap", "Admin Panel"],
     demoUrl: "https://sapa-desawadas.infinityfreeapp.com/public/login",
   },
