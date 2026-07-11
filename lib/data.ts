@@ -87,7 +87,7 @@ export const projects = [
     title: "Klinik Kemala",
     description:
       "Sistem informasi klinik dengan panel admin untuk pengelolaan data pasien, jadwal dokter, dan layanan kesehatan.",
-    image: "/images/projects/klinik-kemala.jpg",
+    image: "/images/projects/klinik-kemala.jpg.png",
     tags: ["PHP", "MySQL", "Bootstrap", "Admin Panel"],
     demoUrl: "https://klinik-kemala.freedev.app/users/dashboard_admin.php",
   },
