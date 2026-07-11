@@ -83,6 +83,14 @@ export const projects = [
     tags: ["PHP", "MySQL", "Bootstrap", "Admin Panel"],
     demoUrl: "https://sapa-desawadas.infinityfreeapp.com/public/login",
   },
+  {
+    title: "Klinik Kemala",
+    description:
+      "Sistem informasi klinik dengan panel admin untuk pengelolaan data pasien, jadwal dokter, dan layanan kesehatan.",
+    image: "/images/projects/klinik-kemala.jpg",
+    tags: ["PHP", "MySQL", "Bootstrap", "Admin Panel"],
+    demoUrl: "https://klinik-kemala.freedev.app/users/dashboard_admin.php",
+  },
 ];
 
 export const experiences = [
