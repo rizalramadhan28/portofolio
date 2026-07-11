@@ -32,12 +32,11 @@ export default function AboutSection() {
           >
             <div className="relative">
               <div className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-accent/30">
-                <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center text-6xl font-bold text-accent/40">
-                  {personalData.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </div>
+                <img
+                  src="/images/profile.jpg"
+                  alt={personalData.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
                 Hey!
