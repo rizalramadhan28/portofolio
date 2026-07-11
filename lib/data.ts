@@ -49,33 +49,6 @@ export const skills = {
 
 export const projects = [
   {
-    title: "E-Commerce Platform",
-    description:
-      "A full-stack e-commerce platform with payment integration, admin dashboard, and real-time inventory management.",
-    image: "/images/projects/ecommerce.jpg",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
-    demoUrl: "https://demo.example.com",
-    githubUrl: "https://github.com/rizalramadhan/ecommerce",
-  },
-  {
-    title: "Network Monitoring Dashboard",
-    description:
-      "Real-time network monitoring dashboard with live traffic visualization, alerting system, and device management.",
-    image: "/images/projects/network-monitor.jpg",
-    tags: ["React", "Node.js", "WebSocket", "D3.js", "Docker"],
-    demoUrl: "https://demo.example.com",
-    githubUrl: "https://github.com/rizalramadhan/network-monitor",
-  },
-  {
-    title: "Task Management App",
-    description:
-      "Collaborative task management tool with real-time updates, drag-and-drop, and team workspace features.",
-    image: "/images/projects/taskapp.jpg",
-    tags: ["Next.js", "TypeScript", "MongoDB", "Socket.io", "Tailwind"],
-    demoUrl: "https://demo.example.com",
-    githubUrl: "https://github.com/rizalramadhan/taskapp",
-  },
-  {
     title: "Sapa Desa Wadas",
     description:
       "Platform digital desa Wadas dengan fitur login dan panel admin untuk pengelolaan data layanan masyarakat desa.",
