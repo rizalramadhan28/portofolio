@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Users } from "lucide-react";
+import { GraduationCap, Briefcase, Users, Code } from "lucide-react";
 import { experiences } from "@/lib/data";
 import SectionWrapper from "./SectionWrapper";
 
@@ -10,6 +10,7 @@ const typeConfig: Record<string, { icon: React.ElementType; color: string; bg: s
   education: { icon: GraduationCap, color: "text-blue-500", bg: "bg-blue-500/10" },
   experience: { icon: Briefcase, color: "text-green-500", bg: "bg-green-500/10" },
   organization: { icon: Users, color: "text-purple-500", bg: "bg-purple-500/10" },
+  project: { icon: Code, color: "text-orange-500", bg: "bg-orange-500/10" },
 };
 
 export default function ExperienceSection() {

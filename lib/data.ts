@@ -71,34 +71,50 @@ export const projects = [
 export const experiences = [
   {
     type: "education",
-    title: "Informatics",
-    organization: "University Singaperbangsa Karawang",
-    period: "2022 - Present",
+    title: "Informatika",
+    organization: "Universitas Singaperbangsa Karawang",
+    period: "2024 - Present",
     description:
-      "Studying informatics with focus on software development and computer networking.",
+      "Menempuh studi informatika dengan fokus pengembangan web, jaringan komputer, dan rekayasa perangkat lunak.",
   },
   {
-    type: "organization",
-    title: "Lab Assistant",
-    organization: "Computer Network Laboratory",
-    period: "2023 - Present",
+    type: "project",
+    title: "Proyek Akhir - Pemrograman Berbasis Web",
+    organization: "Sistem Pengelolaan Klinik Kemala",
+    period: "2024",
     description:
-      "Assisting students in network configuration labs, maintaining lab infrastructure, and developing learning materials.",
+      "Mengembangkan sistem manajemen data klinik menggunakan PHP dan MySQL untuk proses administrasi kesehatan.",
   },
   {
-    type: "experience",
-    title: "Freelance Web Developer",
-    organization: "Self-employed",
-    period: "2023 - Present",
+    type: "project",
+    title: "Proyek Akhir - Rekayasa Perangkat Lunak",
+    organization: "Sistem Absensi Perangkat Desa Wadas",
+    period: "2024",
     description:
-      "Built multiple web applications for clients using React, Next.js, and modern web technologies.",
+      "Merancang sistem absensi berbasis web untuk pemerintahan desa, meningkatkan akurasi pencatatan kehadiran.",
   },
   {
-    type: "organization",
-    title: "Member",
-    organization: "Developer Student Club",
-    period: "2022 - Present",
+    type: "project",
+    title: "Proyek Akhir - Interaksi Manusia dan Komputer",
+    organization: "Website E-Commerce Sneakers",
+    period: "2024",
     description:
-      "Active member participating in tech workshops, hackathons, and community projects.",
+      "Merancang antarmuka dan alur pengguna untuk platform jual-beli sepatu berbasis web.",
+  },
+  {
+    type: "project",
+    title: "Proyek Akhir - Pemrograman Berorientasi Objek",
+    organization: "Sistem Booking Lapangan Badminton",
+    period: "2024",
+    description:
+      "Mengembangkan aplikasi desktop menggunakan Java untuk mengelola reservasi dan jadwal lapangan.",
+  },
+  {
+    type: "project",
+    title: "Proyek Akhir - Jaringan Komputer",
+    organization: "Konfigurasi Jaringan Hotspot",
+    period: "2023",
+    description:
+      "Mensimulasikan infrastruktur jaringan dengan Cisco Packet Tracer dan sistem voucher hotspot menggunakan Mikhmon.",
   },
 ];
