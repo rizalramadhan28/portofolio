@@ -1,17 +1,17 @@
 export const personalData = {
   name: "Rizal Ramadhan",
   title: "Fullstack & Networking",
-  heroTagline: "Building digital solutions from frontend to infrastructure",
+  heroTagline: "Membangun solusi digital dari frontend hingga infrastruktur",
   about: [
-    "A passionate Fullstack Developer and Networking enthusiast with experience in building modern web applications and managing network infrastructure. I love turning complex problems into simple, beautiful, and intuitive solutions.",
-    "Currently seeking an internship opportunity where I can contribute my skills in web development, network configuration, and system administration while continuing to learn and grow.",
+    "Seorang Fullstack Developer dan Networking enthusiast yang bersemangat dengan pengalaman dalam membangun aplikasi web modern dan mengelola infrastruktur jaringan. Saya suka mengubah masalah yang kompleks menjadi solusi yang sederhana, indah, dan intuitif.",
+    "Saat ini sedang mencari kesempatan magang di mana saya dapat mengasah keterampilan dalam pengembangan web, konfigurasi jaringan, dan administrasi sistem sambil terus belajar dan berkembang.",
   ],
-  email: "rizal@example.com",
+  email: "muhamadrizalramadhan28@gmail.com",
   location: "Indonesia",
   social: {
     github: "https://github.com/rizalramadhan",
     linkedin: "https://linkedin.com/in/rizalramadhan",
-    email: "mailto:rizal@example.com",
+    email: "mailto:muhamadrizalramadhan28@gmail.com",
   },
   cvUrl: "/cv.pdf",
 };
