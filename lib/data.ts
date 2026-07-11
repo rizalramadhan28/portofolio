@@ -12,6 +12,9 @@ export const personalData = {
     github: "https://github.com/rizalramadhan",
     linkedin: "https://linkedin.com/in/rizalramadhan",
     email: "mailto:muhamadrizalramadhan28@gmail.com",
+    whatsapp: "https://wa.me/6281293431634",
+    instagram: "https://www.instagram.com/rizallramadhaan",
+    youtube: "https://www.youtube.com/@muhamadrizalramadhan3013",
   },
   cvUrl: "/cv.pdf",
 };
