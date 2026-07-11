@@ -55,6 +55,7 @@ export const projects = [
     image: "/images/projects/sapa-desa.jpg.png",
     tags: ["PHP", "MySQL", "Bootstrap", "Admin Panel"],
     demoUrl: "https://sapa-desawadas.infinityfreeapp.com/public/login",
+    githubUrl: "",
   },
   {
     title: "Klinik Kemala",
@@ -63,6 +64,7 @@ export const projects = [
     image: "/images/projects/klinik-kemala.jpg.png",
     tags: ["PHP", "MySQL", "Bootstrap", "Admin Panel"],
     demoUrl: "https://klinik-kemala.freedev.app/users/dashboard_admin.php",
+    githubUrl: "",
   },
 ];
 
