@@ -31,6 +31,7 @@ export const skills = {
     { name: "MariaDB", icon: "SiMariadb" },
     { name: "REST API", icon: "SiPostman" },
     { name: "Prisma", icon: "SiPrisma" },
+    { name: "WordPress", icon: "SiWordpress" },
   ],
   Networking: [
     { name: "Cisco", icon: "SiCisco" },
@@ -41,6 +42,8 @@ export const skills = {
     { name: "VS Code", icon: "SiVisualstudiocode" },
     { name: "Figma", icon: "SiFigma" },
     { name: "Vercel", icon: "SiVercel" },
+    { name: "Antigravity", icon: "SiAntigravity" },
+    { name: "Kiro", icon: "SiKiro" },
   ],
 };
 

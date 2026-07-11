@@ -26,6 +26,9 @@ const iconMap: Record<string, string> = {
   SiFigma: "🎯",
   SiVercel: "▲",
   SiGnubash: "⌨️",
+  SiWordpress: "📝",
+  SiAntigravity: "🚀",
+  SiKiro: "🤖",
 };
 
 export default function SkillsSection() {
