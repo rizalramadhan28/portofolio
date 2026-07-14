@@ -1,23 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { FileDown, MapPin, Mail } from "lucide-react";
 import { personalData } from "@/lib/data";
 import SectionWrapper from "./SectionWrapper";
 import SplitText from "./SplitText";
 
-const stats = [
-  { number: "1+", label: "Years Experience" },
-  { number: "10+", label: "Projects Completed" },
-  { number: "10+", label: "Technologies" },
-  { number: "100%", label: "Commitment" },
-];
-
 export default function AboutSection() {
-  const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-100px" });
-
   return (
     <SectionWrapper id="about">
       <div className="container">
@@ -41,109 +30,60 @@ export default function AboutSection() {
           />
         </div>
 
-        <div
-          ref={cardRef}
-          className="grid md:grid-cols-2 gap-12 items-center"
-        >
-          {/* Image Column */}
+        <div className="grid md:grid-cols-5 gap-12 items-center max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="md:col-span-2 flex justify-center"
           >
-            <motion.div
-              className="relative aspect-square max-w-md mx-auto rounded-2xl overflow-hidden border-2 border-accent/20"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center">
-                <span className="text-6xl font-bold text-accent/30">RR</span>
+            <div className="relative">
+              <div className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-accent/30">
+                <img
+                  src="/images/profile.jpg"
+                  alt={personalData.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-
-            {/* Floating Badge */}
-            <motion.div
-              className="absolute -top-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full font-semibold shadow-lg"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              Hey!
-            </motion.div>
-
-            {/* Decorative Elements */}
-            <motion.div
-              className="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-accent/20 rounded-xl -z-10"
-              animate={{ rotate: [0, 5, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="absolute -top-6 -left-6 w-16 h-16 bg-accent/10 rounded-lg -z-10"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.div>
-
-          {/* Text Column */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          >
-            <h3 className="text-2xl font-bold mb-4">
-              A dedicated developer based in Indonesia
-            </h3>
-
-            <div className="flex flex-wrap gap-4 mb-6">
-              <div className="flex items-center gap-2 text-muted">
-                <MapPin className="w-4 h-4 text-accent" />
-                <span>{personalData.location}</span>
-              </div>
-              <div className="flex items-center gap-2 text-muted">
-                <Mail className="w-4 h-4 text-accent" />
-                <span>{personalData.email}</span>
+              <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                Hey!
               </div>
             </div>
+          </motion.div>
 
-            {personalData.about.map((paragraph, index) => (
-              <p key={index} className="text-muted leading-relaxed mb-4">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="md:col-span-3"
+          >
+            <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-muted">
+              <span className="flex items-center gap-1.5">
+                <MapPin size={14} />
+                {personalData.location}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Mail size={14} />
+                {personalData.email}
+              </span>
+            </div>
+
+            {personalData.about.map((paragraph, i) => (
+              <p key={i} className="text-foreground/80 leading-relaxed mb-4">
                 {paragraph}
               </p>
             ))}
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className="p-4 rounded-xl bg-muted/50 border border-border hover:border-accent/30 transition-colors"
-                >
-                  <div className="text-2xl font-bold text-accent">{stat.number}</div>
-                  <div className="text-sm text-muted">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.a
+            <a
               href={personalData.cvUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              download
+              className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-accent text-white rounded-full font-medium hover:bg-accent-hover transition-all duration-300 shadow-lg shadow-accent/25"
             >
-              <FileDown className="w-4 h-4" />
+              <FileDown size={18} />
               Download CV
-            </motion.a>
+            </a>
           </motion.div>
         </div>
       </div>
