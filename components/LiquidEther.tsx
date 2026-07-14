@@ -807,7 +807,15 @@ export default function LiquidEther({
 
     class Simulation {
       options: any;
-      fbos: Record<string, THREE.WebGLRenderTarget | null> = {};
+      fbos: Record<string, THREE.WebGLRenderTarget | null> = {
+        vel_0: null,
+        vel_1: null,
+        vel_viscous0: null,
+        vel_viscous1: null,
+        div: null,
+        pressure_0: null,
+        pressure_1: null,
+      };
       fboSize = new THREE.Vector2();
       cellScale = new THREE.Vector2();
       boundarySpace = new THREE.Vector2();
