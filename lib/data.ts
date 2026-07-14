@@ -30,6 +30,7 @@ export const skills = {
   Backend: [
     { name: "Node.js", icon: "SiNodedotjs" },
     { name: "Express", icon: "SiExpress" },
+    { name: "Socket.io", icon: "SiSocketdotio" },
     { name: "MySQL", icon: "SiMysql" },
     { name: "MariaDB", icon: "SiMariadb" },
     { name: "REST API", icon: "SiPostman" },
@@ -42,11 +43,9 @@ export const skills = {
   ],
   Tools: [
     { name: "Git", icon: "SiGit" },
-    { name: "VS Code", icon: "SiVisualstudiocode" },
+    { name: "VS Code", icon: "SiVscodium" },
     { name: "Figma", icon: "SiFigma" },
     { name: "Vercel", icon: "SiVercel" },
-    { name: "Antigravity", icon: "SiAntigravity" },
-    { name: "Kiro", icon: "SiKiro" },
   ],
 };
 
