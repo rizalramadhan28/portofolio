@@ -46,6 +46,8 @@ export const skills = {
     { name: "VS Code", icon: "SiVscodium" },
     { name: "Figma", icon: "SiFigma" },
     { name: "Vercel", icon: "SiVercel" },
+    { name: "Antigravity", icon: "SiAntigravity" },
+    { name: "Kiro", icon: "SiKiro" },
   ],
 };
 
