@@ -39,7 +39,8 @@ export default function ProjectsSection() {
         scaleEndPosition="5%"
         baseScale={0.9}
         itemScale={0.03}
-        blurAmount={0.5}
+        blurAmount={0}
+        rotationAmount={0}
       >
         {projects.map((project) => (
           <ScrollStackItem key={project.title}>

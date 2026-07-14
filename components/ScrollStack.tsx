@@ -154,10 +154,10 @@ const ScrollStack = ({
       const lastTransform = lastTransformsRef.current.get(i);
       const hasChanged =
         !lastTransform ||
-        Math.abs(lastTransform.translateY - newTransform.translateY) > 0.1 ||
-        Math.abs(lastTransform.scale - newTransform.scale) > 0.001 ||
-        Math.abs(lastTransform.rotation - newTransform.rotation) > 0.1 ||
-        Math.abs(lastTransform.blur - newTransform.blur) > 0.1;
+        Math.abs(lastTransform.translateY - newTransform.translateY) > 0.5 ||
+        Math.abs(lastTransform.scale - newTransform.scale) > 0.002 ||
+        Math.abs(lastTransform.rotation - newTransform.rotation) > 0.2 ||
+        Math.abs(lastTransform.blur - newTransform.blur) > 0.2;
 
       if (hasChanged) {
         const transform = `translate3d(0, ${newTransform.translateY}px, 0) scale(${newTransform.scale}) rotate(${newTransform.rotation}deg)`;
