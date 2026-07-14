@@ -59,7 +59,6 @@ const SplitText = ({
   useGSAP(
     () => {
       if (!ref.current || !text || !fontsLoaded) return;
-      if (animationCompletedRef.current) return;
       const el = ref.current;
 
       if ((el as any)._rbsplitInstance) {
