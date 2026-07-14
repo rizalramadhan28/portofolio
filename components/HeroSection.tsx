@@ -40,7 +40,8 @@ export default function HeroSection() {
           <p className="text-accent font-medium mb-4 text-sm md:text-base tracking-wider uppercase">
             Hello, I&apos;m
           </p>
-          <div style={{ fontFamily: "var(--font-playfair), serif" }}>
+
+          <div className="hero-name-container">
             <GradientText
               colors={["#5227FF", "#FF9FFC", "#B497CF", "#FF9FFC", "#5227FF"]}
               animationSpeed={4}
@@ -50,7 +51,7 @@ export default function HeroSection() {
               <SplitText
                 text={personalData.name}
                 tag="h1"
-                className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6"
+                className="hero-name-text text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6"
                 delay={80}
                 duration={0.8}
                 ease="power3.out"
@@ -63,6 +64,7 @@ export default function HeroSection() {
               />
             </GradientText>
           </div>
+
           <div className="relative inline-block">
             <TextType
               text={["Fullstack Developer", "Networking Enthusiast", "Web Developer"]}

@@ -68,3 +68,41 @@ html {
   border-radius: 0 !important;
   overflow: visible !important;
 }
+
+.hero-name-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  font-family: var(--font-playfair), serif;
+}
+
+@media (min-width: 640px) {
+  .hero-name-container {
+    min-height: 4.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-name-container {
+    min-height: 6rem;
+  }
+}
+
+.hero-name-text {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: visible !important;
+  white-space: nowrap !important;
+  position: relative;
+}
+
+.hero-name-text.split-parent {
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
