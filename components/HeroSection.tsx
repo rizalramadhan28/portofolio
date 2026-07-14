@@ -7,6 +7,7 @@ import LiquidEther from "./LiquidEther";
 import ErrorBoundary from "./ErrorBoundary";
 import SplitText from "./SplitText";
 import TextType from "./TextType";
+import GradientText from "./GradientText";
 
 export default function HeroSection() {
   return (
@@ -39,21 +40,28 @@ export default function HeroSection() {
           <p className="text-accent font-medium mb-4 text-sm md:text-base tracking-wider uppercase">
             Hello, I&apos;m
           </p>
-          <div style={{ fontFamily: "var(--font-playfair), serif", color: "#1A1A1A" }}>
-            <SplitText
-              text={personalData.name}
-              tag="h1"
-              className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6"
-              delay={80}
-              duration={0.8}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 50, rotateX: -90 }}
-              to={{ opacity: 1, y: 0, rotateX: 0 }}
-              threshold={0.1}
-              rootMargin="-50px"
-              textAlign="center"
-            />
+          <div style={{ fontFamily: "var(--font-playfair), serif" }}>
+            <GradientText
+              colors={["#5227FF", "#FF9FFC", "#B497CF", "#FF9FFC", "#5227FF"]}
+              animationSpeed={4}
+              showBorder={false}
+              className="hero-gradient-name"
+            >
+              <SplitText
+                text={personalData.name}
+                tag="h1"
+                className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6"
+                delay={80}
+                duration={0.8}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 50, rotateX: -90 }}
+                to={{ opacity: 1, y: 0, rotateX: 0 }}
+                threshold={0.1}
+                rootMargin="-50px"
+                textAlign="center"
+              />
+            </GradientText>
           </div>
           <div className="relative inline-block">
             <TextType

@@ -63,3 +63,8 @@ html {
     border-radius: 24px;
   }
 }
+
+.hero-gradient-name {
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
