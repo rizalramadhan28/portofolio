@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Send, Mail, MapPin } from "lucide-react";
 import { personalData } from "@/lib/data";
 import SectionWrapper from "./SectionWrapper";
+import SplitText from "./SplitText";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -26,21 +27,28 @@ export default function ContactSection() {
   return (
     <SectionWrapper id="contact">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-accent font-medium text-sm tracking-wider uppercase mb-3">
             Contact
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold">Get In Touch</h2>
+          <SplitText
+            text="Get In Touch"
+            tag="h2"
+            className="text-3xl md:text-4xl font-bold"
+            delay={60}
+            duration={0.8}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 30 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
           <p className="text-muted mt-4 max-w-lg mx-auto">
             Have a question or want to work together? Feel free to reach out!
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-5 gap-12 max-w-4xl mx-auto">
           <motion.div

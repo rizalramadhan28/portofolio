@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { skills } from "@/lib/data";
 import SectionWrapper from "./SectionWrapper";
+import SplitText from "./SplitText";
 
 const iconMap: Record<string, string> = {
   SiReact: "⚛️",
@@ -35,21 +36,28 @@ export default function SkillsSection() {
   return (
     <SectionWrapper id="skills" className="bg-card/50">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-accent font-medium text-sm tracking-wider uppercase mb-3">
             Skills
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold">Tech Stack</h2>
+          <SplitText
+            text="Tech Stack"
+            tag="h2"
+            className="text-3xl md:text-4xl font-bold"
+            delay={60}
+            duration={0.8}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 30 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
           <p className="text-muted mt-4 max-w-lg mx-auto">
             Technologies and tools I work with on a daily basis
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {Object.entries(skills).map(([category, items], categoryIdx) => (

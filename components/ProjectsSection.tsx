@@ -4,26 +4,34 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data";
 import SectionWrapper from "./SectionWrapper";
+import SplitText from "./SplitText";
 
 export default function ProjectsSection() {
   return (
     <SectionWrapper id="projects">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-accent font-medium text-sm tracking-wider uppercase mb-3">
             Projects
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold">Featured Work</h2>
+          <SplitText
+            text="Featured Work"
+            tag="h2"
+            className="text-3xl md:text-4xl font-bold"
+            delay={60}
+            duration={0.8}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 30 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
           <p className="text-muted mt-4 max-w-lg mx-auto">
             Some projects I&apos;ve built recently
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projects.map((project, idx) => (

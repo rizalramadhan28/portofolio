@@ -5,6 +5,7 @@ import { ArrowDown, Mail, FileDown } from "lucide-react";
 import { personalData } from "@/lib/data";
 import LiquidEther from "./LiquidEther";
 import ErrorBoundary from "./ErrorBoundary";
+import SplitText from "./SplitText";
 
 export default function HeroSection() {
   return (
@@ -30,27 +31,43 @@ export default function HeroSection() {
 
       <div className="container relative z-10 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-accent font-medium mb-4 text-sm md:text-base tracking-wider uppercase">
-              Hello, I&apos;m
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6">
-              {personalData.name}
-            </h1>
-            <div className="relative inline-block">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent mb-6">
-                {personalData.title}
-              </h2>
-              <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-accent/50 rounded-full" />
-            </div>
-            <p className="text-muted text-base sm:text-lg max-w-xl mx-auto mt-8 mb-10 leading-relaxed">
-              {personalData.heroTagline}
-            </p>
-          </motion.div>
+          <p className="text-accent font-medium mb-4 text-sm md:text-base tracking-wider uppercase">
+            Hello, I&apos;m
+          </p>
+          <SplitText
+            text={personalData.name}
+            tag="h1"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6"
+            delay={80}
+            duration={0.8}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 50, rotateX: -90 }}
+            to={{ opacity: 1, y: 0, rotateX: 0 }}
+            threshold={0.1}
+            rootMargin="-50px"
+            textAlign="center"
+          />
+          <div className="relative inline-block">
+            <SplitText
+              text={personalData.title}
+              tag="h2"
+              className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent mb-6"
+              delay={60}
+              duration={0.6}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 30 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-50px"
+              textAlign="center"
+            />
+            <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-accent/50 rounded-full" />
+          </div>
+          <p className="text-muted text-base sm:text-lg max-w-xl mx-auto mt-8 mb-10 leading-relaxed">
+            {personalData.heroTagline}
+          </p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

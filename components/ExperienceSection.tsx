@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Users, Code } from "lucide-react";
 import { experiences } from "@/lib/data";
 import SectionWrapper from "./SectionWrapper";
+import SplitText from "./SplitText";
 
 const typeConfig: Record<string, { icon: React.ElementType; color: string; bg: string }> = {
   education: { icon: GraduationCap, color: "text-blue-500", bg: "bg-blue-500/10" },
@@ -17,18 +18,25 @@ export default function ExperienceSection() {
   return (
     <SectionWrapper id="experience" className="bg-card/50">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-accent font-medium text-sm tracking-wider uppercase mb-3">
             Experience
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold">My Journey</h2>
-        </motion.div>
+          <SplitText
+            text="My Journey"
+            tag="h2"
+            className="text-3xl md:text-4xl font-bold"
+            delay={60}
+            duration={0.8}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 30 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
+        </div>
 
         <div className="relative max-w-3xl mx-auto">
           <div className="absolute left-[23px] top-0 bottom-0 w-px bg-card-border" />
