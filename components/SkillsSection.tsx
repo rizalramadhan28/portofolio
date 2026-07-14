@@ -1,41 +1,56 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { skills } from "@/lib/data";
 import SectionWrapper from "./SectionWrapper";
 import SplitText from "./SplitText";
 
+const categoryGradients: Record<string, string> = {
+  Frontend: "from-blue-500 to-cyan-400",
+  Backend: "from-green-500 to-emerald-400",
+  Networking: "from-purple-500 to-violet-400",
+  Tools: "from-orange-500 to-amber-400",
+};
+
+const categoryBg: Record<string, string> = {
+  Frontend: "from-blue-500/20 to-cyan-500/20 border-blue-500/30",
+  Backend: "from-green-500/20 to-emerald-500/20 border-green-500/30",
+  Networking: "from-purple-500/20 to-violet-500/20 border-purple-500/30",
+  Tools: "from-orange-500/20 to-amber-500/20 border-orange-500/30",
+};
+
 const iconMap: Record<string, string> = {
   SiReact: "⚛️",
   SiNextdotjs: "▲",
-  SiTailwindcss: "🎨",
+  SiTailwindcss: "🌊",
   SiHtml5: "🌐",
-  SiJavascript: "🟨",
+  SiJavascript: "⚡",
   SiNodedotjs: "🟢",
-  SiMysql: "🐘",
-  SiMariadb: "🍃",
+  SiExpress: "🚂",
+  SiMysql: "🗄️",
+  SiMariadb: "🐬",
   SiPostman: "📮",
-  SiPrisma: "🔷",
+  SiPrisma: "◆",
+  SiWordpress: "📰",
   SiCisco: "🌐",
-  SiLinux: "🐧",
-  SiDocker: "🐳",
-  SiNginx: "🔄",
-  SiCloudflare: "☁️",
   SiSecurityscorecard: "🔒",
-  SiGit: "📦",
+  SiGit: "🔀",
   SiVisualstudiocode: "💻",
-  SiFigma: "🎯",
+  SiFigma: "🎨",
   SiVercel: "▲",
-  SiGnubash: "⌨️",
-  SiWordpress: "📝",
   SiAntigravity: "🚀",
-  SiKiro: "🤖",
+  SiKiro: "⚡",
 };
 
 export default function SkillsSection() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const categories = Object.keys(skills) as Array<keyof typeof skills>;
+
   return (
-    <SectionWrapper id="skills" className="bg-card/50">
-      <div className="container">
+    <SectionWrapper id="skills">
+      <div className="container" ref={sectionRef}>
         <div className="text-center mb-16">
           <p className="text-accent font-medium text-sm tracking-wider uppercase mb-3">
             Skills
@@ -59,38 +74,50 @@ export default function SkillsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {Object.entries(skills).map(([category, items], categoryIdx) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: categoryIdx * 0.1 }}
-              className="bg-card border border-card-border rounded-2xl p-6"
-            >
-              <h3 className="text-lg font-semibold mb-5 text-accent">
-                {category}
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {items.map((skill, idx) => (
-                  <motion.span
-                    key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: idx * 0.05 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-card-border rounded-full text-sm font-medium text-foreground hover:border-accent/50 hover:text-accent transition-colors"
-                  >
-                    <span className="text-base">
-                      {iconMap[skill.icon] || "◆"}
-                    </span>
-                    {skill.name}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        <div className="space-y-8">
+          {categories.map((category, categoryIndex) => {
+            const items = skills[category];
+            const catColor = categoryBg[category] || "from-slate-500/20 to-gray-500/20 border-slate-500/30";
+            const catGradient = categoryGradients[category] || "from-slate-500 to-gray-400";
+            return (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                className={`p-6 rounded-2xl bg-gradient-to-br ${catColor} border backdrop-blur-sm`}
+              >
+                <motion.h3
+                  className="text-xl font-bold mb-4 flex items-center gap-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: categoryIndex * 0.1 + 0.2 }}
+                >
+                  <span className={`w-3 h-3 rounded-full bg-gradient-to-r ${catGradient}`} />
+                  {category}
+                </motion.h3>
+
+                <div className="flex flex-wrap gap-3">
+                  {items.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{
+                        duration: 0.3,
+                        delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.3,
+                      }}
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      className="flex items-center gap-2 px-4 py-2 bg-background/80 rounded-full border border-border hover:border-accent/50 transition-all cursor-default shadow-sm hover:shadow-md"
+                    >
+                      <span className="text-lg">{iconMap[skill.icon] || "🔧"}</span>
+                      <span className="text-sm font-medium">{skill.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </SectionWrapper>

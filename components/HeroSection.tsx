@@ -6,6 +6,7 @@ import { personalData } from "@/lib/data";
 import LiquidEther from "./LiquidEther";
 import ErrorBoundary from "./ErrorBoundary";
 import SplitText from "./SplitText";
+import TypingEffect from "./TypingEffect";
 
 export default function HeroSection() {
   return (
@@ -31,9 +32,15 @@ export default function HeroSection() {
 
       <div className="container relative z-10 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-accent font-medium mb-4 text-sm md:text-base tracking-wider uppercase">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-accent font-medium mb-4 text-sm md:text-base tracking-wider uppercase"
+          >
             Hello, I&apos;m
-          </p>
+          </motion.p>
+
           <SplitText
             text={personalData.name}
             tag="h1"
@@ -48,48 +55,57 @@ export default function HeroSection() {
             rootMargin="-50px"
             textAlign="center"
           />
-          <div className="relative inline-block">
-            <SplitText
-              text={personalData.title}
-              tag="h2"
-              className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent mb-6"
-              delay={60}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-50px"
-              textAlign="center"
+
+          <div className="relative inline-block min-h-[3rem] md:min-h-[4rem]">
+            <TypingEffect
+              texts={[
+                personalData.title,
+                "Web Developer",
+                "Mobile Developer",
+                "Full Stack Developer",
+              ]}
+              typingSpeed={80}
+              deletingSpeed={40}
+              pauseDuration={2000}
+              className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent"
             />
-            <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-accent/50 rounded-full" />
           </div>
-          <p className="text-muted text-base sm:text-lg max-w-xl mx-auto mt-8 mb-10 leading-relaxed">
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-muted text-base sm:text-lg max-w-xl mx-auto mt-8 mb-10 leading-relaxed"
+          >
             {personalData.heroTagline}
-          </p>
+          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 1 }}
             className="flex flex-wrap items-center justify-center gap-4"
           >
-            <a
+            <motion.a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-full font-medium hover:bg-accent-hover transition-all duration-300 shadow-lg shadow-accent/25"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-accent/25"
             >
               <Mail size={18} />
               Get In Touch
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href={personalData.cvUrl}
-              download
-              className="inline-flex items-center gap-2 px-6 py-3 border border-card-border text-foreground rounded-full font-medium hover:border-accent hover:text-accent transition-all duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground rounded-full font-medium hover:border-accent hover:text-accent transition-colors"
             >
               <FileDown size={18} />
               Download CV
-            </a>
+            </motion.a>
           </motion.div>
         </div>
       </div>
@@ -97,21 +113,18 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        transition={{ delay: 1.5, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
-        <a
+        <motion.a
           href="#about"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
           className="flex flex-col items-center gap-2 text-muted hover:text-foreground transition-colors"
         >
           <span className="text-xs tracking-wider uppercase">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <ArrowDown size={16} />
-          </motion.div>
-        </a>
+          <ArrowDown size={16} />
+        </motion.a>
       </motion.div>
     </section>
   );
