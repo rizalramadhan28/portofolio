@@ -11,21 +11,19 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <ErrorBoundary>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div style={{ width: '1080px', height: '1080px', position: 'relative' }}>
-            <LiquidEther
-              mouseForce={20}
-              cursorSize={100}
-              isViscous
-              viscous={30}
-              colors={["#5227FF","#FF9FFC","#B497CF"]}
-              autoDemo
-              autoSpeed={0.5}
-              autoIntensity={2.2}
-              isBounce={false}
-              resolution={0.5}
-            />
-          </div>
+        <div className="absolute inset-0 pointer-events-none">
+          <LiquidEther
+            mouseForce={20}
+            cursorSize={100}
+            isViscous
+            viscous={30}
+            colors={["#5227FF","#FF9FFC","#B497CF"]}
+            autoDemo
+            autoSpeed={0.5}
+            autoIntensity={2.2}
+            isBounce={false}
+            resolution={0.5}
+          />
         </div>
       </ErrorBoundary>
 
