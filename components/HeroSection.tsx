@@ -4,22 +4,29 @@ import { motion } from "framer-motion";
 import { ArrowDown, Mail, FileDown } from "lucide-react";
 import { personalData } from "@/lib/data";
 import LiquidEther from "./LiquidEther";
+import ErrorBoundary from "./ErrorBoundary";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <LiquidEther
-        mouseForce={20}
-        cursorSize={100}
-        isViscous
-        viscous={30}
-        colors={["#5227FF","#FF9FFC","#B497CF"]}
-        autoDemo
-        autoSpeed={0.5}
-        autoIntensity={2.2}
-        isBounce={false}
-        resolution={0.5}
-      />
+      <ErrorBoundary>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div style={{ width: '1080px', height: '1080px', position: 'relative' }}>
+            <LiquidEther
+              mouseForce={20}
+              cursorSize={100}
+              isViscous
+              viscous={30}
+              colors={["#5227FF","#FF9FFC","#B497CF"]}
+              autoDemo
+              autoSpeed={0.5}
+              autoIntensity={2.2}
+              isBounce={false}
+              resolution={0.5}
+            />
+          </div>
+        </div>
+      </ErrorBoundary>
 
       <div className="container relative z-10 px-4">
         <div className="max-w-3xl mx-auto text-center">

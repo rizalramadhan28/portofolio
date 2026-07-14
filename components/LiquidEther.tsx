@@ -54,6 +54,10 @@ export default function LiquidEther({
   useEffect(() => {
     if (!mountRef.current) return;
 
+    let disposed = false;
+
+    try {
+
     function makePaletteTexture(stops: string[]) {
       let arr: string[];
       if (Array.isArray(stops) && stops.length > 0) {
@@ -1143,7 +1147,13 @@ export default function LiquidEther({
     ro.observe(container);
     resizeObserverRef.current = ro;
 
+    } catch (e) {
+      if (disposed) return;
+      throw e;
+    }
+
     return () => {
+      disposed = true;
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       if (resizeObserverRef.current) {
         try {
