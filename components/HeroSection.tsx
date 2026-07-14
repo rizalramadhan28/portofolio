@@ -25,6 +25,12 @@ export default function HeroSection() {
             resolution={0.5}
           />
         </div>
+        <div className="absolute inset-0 pointer-events-none z-[1]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,var(--background)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
+        </div>
       </ErrorBoundary>
 
       <div className="container relative z-10 px-4">
