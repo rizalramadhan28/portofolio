@@ -5,6 +5,7 @@ import { FileDown, MapPin, Mail } from "lucide-react";
 import { personalData } from "@/lib/data";
 import SectionWrapper from "./SectionWrapper";
 import SplitText from "./SplitText";
+import TiltedCard from "./TiltedCard";
 
 export default function AboutSection() {
   return (
@@ -39,14 +40,20 @@ export default function AboutSection() {
             className="md:col-span-2 flex justify-center"
           >
             <div className="relative">
-              <div className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-accent/30">
-                <img
-                  src="/images/profile.jpg"
-                  alt={personalData.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+              <TiltedCard
+                imageSrc="/images/profile.jpg"
+                altText={personalData.name}
+                captionText={personalData.name}
+                containerHeight="280px"
+                containerWidth="280px"
+                imageHeight="280px"
+                imageWidth="280px"
+                rotateAmplitude={12}
+                scaleOnHover={1.08}
+                showMobileWarning={false}
+                showTooltip={false}
+              />
+              <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg z-10">
                 Hey!
               </div>
             </div>
