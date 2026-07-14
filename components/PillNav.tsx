@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import "./PillNav.css";
 
@@ -8,7 +8,7 @@ const PillNav = ({
   logo,
   logoAlt = "Logo",
   items,
-  activeHref,
+  activeHref: externalActiveHref,
   className = "",
   ease = "power3.easeOut",
   baseColor = "#fff",
@@ -33,6 +33,9 @@ const PillNav = ({
 }) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState(
+    externalActiveHref || items?.[0]?.href || ""
+  );
   const circleRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const tlRefs = useRef<gsap.core.Timeline[]>([]);
   const activeTweenRefs = useRef<gsap.core.Tween[]>([]);
@@ -43,6 +46,46 @@ const PillNav = ({
   const navItemsRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
 
+  const handleNavClick = useCallback(
+    (href: string) => {
+      setActiveHref(href);
+      setIsMobileMenuOpen(false);
+    },
+    []
+  );
+
+  useEffect(() => {
+    const sectionIds = items
+      .map((item) => item.href.replace("#", ""))
+      .filter(Boolean);
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            setActiveHref(`#${id}`);
+            break;
+          }
+        }
+      },
+      {
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [items]);
+
   useEffect(() => {
     const layout = () => {
       circleRefs.current.forEach((circle) => {
@@ -51,7 +94,7 @@ const PillNav = ({
         const pill = circle.parentElement;
         const rect = pill.getBoundingClientRect();
         const { width: w, height: h } = rect;
-        const R = (w * w) / 4 + h * h / (2 * h);
+        const R = (w * w) / 4 + (h * h) / (2 * h);
         const D = Math.ceil(2 * R) + 2;
         const delta =
           Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
@@ -241,7 +284,7 @@ const PillNav = ({
         {logo ? (
           <a
             className="pill-logo"
-            href={items?.[0]?.href || "#"}
+            href="#"
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
             ref={logoRef}
@@ -251,7 +294,7 @@ const PillNav = ({
         ) : (
           <a
             className="pill-logo pill-logo-text"
-            href={items?.[0]?.href || "#"}
+            href="#"
             aria-label="Home"
             ref={logoRef}
           >
@@ -270,6 +313,7 @@ const PillNav = ({
                   aria-label={item.ariaLabel || item.label}
                   onMouseEnter={() => handleEnter(i)}
                   onMouseLeave={() => handleLeave(i)}
+                  onClick={() => handleNavClick(item.href)}
                 >
                   <span
                     className="hover-circle"
@@ -312,7 +356,7 @@ const PillNav = ({
               <a
                 href={item.href}
                 className={`mobile-menu-link${activeHref === item.href ? " is-active" : ""}`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => handleNavClick(item.href)}
               >
                 {item.label}
               </a>

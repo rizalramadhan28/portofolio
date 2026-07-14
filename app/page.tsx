@@ -21,12 +21,10 @@ export default function Home() {
     <>
       <PillNav
         items={navItems}
-        activeHref="#about"
         baseColor="#fff"
         pillColor="#120F17"
         hoveredPillTextColor="#120F17"
         pillTextColor="#fff"
-        className=""
       />
       <div className="fixed top-[1em] right-[1.5em] z-[100]">
         <ThemeToggle />
