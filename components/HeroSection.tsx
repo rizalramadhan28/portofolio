@@ -6,6 +6,7 @@ import { personalData } from "@/lib/data";
 import LiquidEther from "./LiquidEther";
 import ErrorBoundary from "./ErrorBoundary";
 import SplitText from "./SplitText";
+import TextType from "./TextType";
 
 export default function HeroSection() {
   return (
@@ -55,19 +56,18 @@ export default function HeroSection() {
             />
           </div>
           <div className="relative inline-block">
-            <SplitText
-              text={personalData.title}
-              tag="h2"
+            <TextType
+              text={["Fullstack Developer", "Networking Enthusiast", "Web Developer"]}
+              as="h2"
               className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent mb-6"
-              delay={60}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-50px"
-              textAlign="center"
+              typingSpeed={75}
+              pauseDuration={1500}
+              deletingSpeed={40}
+              showCursor={true}
+              cursorCharacter="|"
+              cursorBlinkDuration={0.5}
+              loop={true}
+              startOnVisible={true}
             />
             <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-accent/50 rounded-full" />
           </div>
