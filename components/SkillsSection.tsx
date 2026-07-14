@@ -48,8 +48,10 @@ const iconMap: Record<string, ReactNode> = {
   SiFigma: <SiFigma className="text-[#F24E1E]" />,
   SiVercel: <SiVercel className="text-[#000000]" />,
   SiAntigravity: (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="#3186FF">
-      <path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm0 2.18L18.18 7 12 10.18 5.82 7 12 4.18zM5 8.82l6 3.36v6.64l-6-3.36V8.82zm8 10V12.18l6-3.36v6.64l-6 3.36z" />
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.5 17.5L12 4L19.5 17.5" stroke="#3186FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M7.5 12.5H16.5" stroke="#3186FF" strokeWidth="2" strokeLinecap="round"/>
+      <circle cx="12" cy="7" r="1.5" fill="#3186FF"/>
     </svg>
   ),
   SiKiro: (
