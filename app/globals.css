@@ -74,35 +74,34 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 3rem;
+  min-height: 3.2rem;
   font-family: var(--font-playfair), serif;
 }
 
 @media (min-width: 640px) {
   .hero-name-container {
-    min-height: 4.5rem;
+    min-height: 4.8rem;
   }
 }
 
 @media (min-width: 768px) {
   .hero-name-container {
-    min-height: 6rem;
+    min-height: 6.5rem;
   }
 }
 
-.hero-name-text {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+.hero-name-text,
+.hero-name-text.split-parent {
+  display: block !important;
   overflow: visible !important;
   white-space: nowrap !important;
+  width: 100%;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
-.hero-name-text.split-parent {
-  overflow: visible !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+.hero-name-text .split-char {
+  display: inline-block !important;
+  will-change: transform, opacity;
 }
