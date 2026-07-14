@@ -3,11 +3,26 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, FileDown } from "lucide-react";
 import { personalData } from "@/lib/data";
+import LineWaves from "./LineWaves";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] dark:opacity-30 opacity-[0.15]" />
+      <LineWaves
+        speed={0.3}
+        innerLineCount={32}
+        outerLineCount={36}
+        warpIntensity={1}
+        rotation={-45}
+        edgeFadeWidth={0}
+        colorCycleSpeed={1}
+        brightness={0.2}
+        color1="#ffffff"
+        color2="#ffffff"
+        color3="#ffffff"
+        enableMouseInteraction
+        mouseInfluence={2}
+      />
 
       <div className="container relative z-10 px-4">
         <div className="max-w-3xl mx-auto text-center">
@@ -62,7 +77,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <a
           href="#about"
