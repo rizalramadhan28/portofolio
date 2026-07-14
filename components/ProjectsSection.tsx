@@ -4,6 +4,7 @@ import { ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data";
 import SplitText from "./SplitText";
 import ScrollStack, { ScrollStackItem } from "./ScrollStack";
+import TiltedCard from "./TiltedCard";
 
 export default function ProjectsSection() {
   return (
@@ -47,10 +48,18 @@ export default function ProjectsSection() {
             <div className="project-card-inner bg-card border border-card-border rounded-3xl overflow-hidden h-full flex flex-col md:flex-row">
               <div className="md:w-2/5 aspect-video md:aspect-auto bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center overflow-hidden">
                 {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
+                  <TiltedCard
+                    imageSrc={project.image}
+                    altText={project.title}
+                    captionText={project.title}
+                    containerHeight="100%"
+                    containerWidth="100%"
+                    imageHeight="100%"
+                    imageWidth="100%"
+                    rotateAmplitude={10}
+                    scaleOnHover={1.05}
+                    showMobileWarning={false}
+                    showTooltip={false}
                   />
                 ) : (
                   <div className="text-5xl opacity-30">
