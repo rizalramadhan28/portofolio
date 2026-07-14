@@ -38,20 +38,22 @@ export default function HeroSection() {
           <p className="text-accent font-medium mb-4 text-sm md:text-base tracking-wider uppercase">
             Hello, I&apos;m
           </p>
-          <SplitText
-            text={personalData.name}
-            tag="h1"
-            className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6"
-            delay={80}
-            duration={0.8}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 50, rotateX: -90 }}
-            to={{ opacity: 1, y: 0, rotateX: 0 }}
-            threshold={0.1}
-            rootMargin="-50px"
-            textAlign="center"
-          />
+          <div style={{ fontFamily: "var(--font-playfair), serif", color: "#1A1A1A" }}>
+            <SplitText
+              text={personalData.name}
+              tag="h1"
+              className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6"
+              delay={80}
+              duration={0.8}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 50, rotateX: -90 }}
+              to={{ opacity: 1, y: 0, rotateX: 0 }}
+              threshold={0.1}
+              rootMargin="-50px"
+              textAlign="center"
+            />
+          </div>
           <div className="relative inline-block">
             <SplitText
               text={personalData.title}
