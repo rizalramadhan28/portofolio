@@ -44,18 +44,21 @@ export default function AboutSection() {
                 imageSrc="/images/profile.jpg"
                 altText={personalData.name}
                 captionText={personalData.name}
-                containerHeight="280px"
-                containerWidth="280px"
-                imageHeight="280px"
-                imageWidth="280px"
+                containerHeight="300px"
+                containerWidth="300px"
+                imageHeight="300px"
+                imageWidth="300px"
                 rotateAmplitude={12}
-                scaleOnHover={1.08}
+                scaleOnHover={1.2}
                 showMobileWarning={false}
-                showTooltip={false}
+                showTooltip={true}
+                displayOverlayContent={true}
+                overlayContent={
+                  <p className="tilted-card-demo-text">
+                    {personalData.name}
+                  </p>
+                }
               />
-              <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg z-10">
-                Hey!
-              </div>
             </div>
           </motion.div>
 
