@@ -51,13 +51,13 @@ export default function HeroSection() {
               <SplitText
                 text={personalData.name}
                 tag="h1"
-                className="hero-name-text text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6"
-                delay={80}
+                className="hero-name-text text-4xl sm:text-5xl md:text-7xl font-semibold mb-6"
+                delay={150}
                 duration={0.8}
                 ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 50, rotateX: -90 }}
-                to={{ opacity: 1, y: 0, rotateX: 0 }}
+                splitType="words"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
                 threshold={0.1}
                 rootMargin="-50px"
                 textAlign="center"

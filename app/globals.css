@@ -74,19 +74,19 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 3.2rem;
+  min-height: 3.5rem;
   font-family: var(--font-playfair), serif;
 }
 
 @media (min-width: 640px) {
   .hero-name-container {
-    min-height: 4.8rem;
+    min-height: 5rem;
   }
 }
 
 @media (min-width: 768px) {
   .hero-name-container {
-    min-height: 6.5rem;
+    min-height: 9rem;
   }
 }
 
@@ -94,14 +94,15 @@ html {
 .hero-name-text.split-parent {
   display: block !important;
   overflow: visible !important;
-  white-space: nowrap !important;
+  white-space: normal !important;
   width: 100%;
   position: relative;
   margin: 0;
   padding: 0;
+  line-height: 1.15;
 }
 
-.hero-name-text .split-char {
+.hero-name-text .split-word {
   display: inline-block !important;
   will-change: transform, opacity;
 }
