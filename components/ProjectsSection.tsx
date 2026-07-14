@@ -8,7 +8,7 @@ import ScrollStack, { ScrollStackItem } from "./ScrollStack";
 export default function ProjectsSection() {
   return (
     <section id="projects">
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <p className="text-accent font-medium text-sm tracking-wider uppercase mb-3">
           Projects
         </p>
