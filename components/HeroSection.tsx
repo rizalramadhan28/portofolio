@@ -3,25 +3,22 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, FileDown } from "lucide-react";
 import { personalData } from "@/lib/data";
-import LineWaves from "./LineWaves";
+import LiquidEther from "./LiquidEther";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <LineWaves
-        speed={0.3}
-        innerLineCount={32}
-        outerLineCount={36}
-        warpIntensity={1}
-        rotation={-45}
-        edgeFadeWidth={0}
-        colorCycleSpeed={1}
-        brightness={0.2}
-        color1="#ffffff"
-        color2="#ffffff"
-        color3="#ffffff"
-        enableMouseInteraction
-        mouseInfluence={2}
+      <LiquidEther
+        mouseForce={20}
+        cursorSize={100}
+        isViscous
+        viscous={30}
+        colors={["#5227FF","#FF9FFC","#B497CF"]}
+        autoDemo
+        autoSpeed={0.5}
+        autoIntensity={2.2}
+        isBounce={false}
+        resolution={0.5}
       />
 
       <div className="container relative z-10 px-4">
