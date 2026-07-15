@@ -7,10 +7,8 @@ import LiquidEther from "./LiquidEther";
 import ErrorBoundary from "./ErrorBoundary";
 import SplitText from "./SplitText";
 import TextType from "./TextType";
-import GradientText from "./GradientText";
 
 const LIQUID_COLORS: string[] = ["#5227FF", "#FF9FFC", "#B497CF"];
-const GRADIENT_NAME_COLORS: string[] = ["#5227FF", "#4079ff", "#B497CF", "#4079ff", "#5227FF"];
 const ROLE_TEXTS: string[] = ["Fullstack Developer", "Networking Enthusiast", "Web Developer"];
 const SPLIT_FROM = { opacity: 0, y: 50, rotateX: -90 };
 const SPLIT_TO = { opacity: 1, y: 0, rotateX: 0 };
@@ -47,13 +45,7 @@ export default function HeroSection() {
             Hello, I&apos;m
           </p>
 
-          <GradientText
-            colors={GRADIENT_NAME_COLORS}
-            animationSpeed={5}
-            showBorder={false}
-            direction="horizontal"
-            className="font-playfair"
-          >
+          <div style={{ fontFamily: "var(--font-playfair), serif" }}>
             <SplitText
               text={personalData.name}
               tag="h1"
@@ -68,7 +60,7 @@ export default function HeroSection() {
               rootMargin="-50px"
               textAlign="center"
             />
-          </GradientText>
+          </div>
 
           <div className="relative inline-block">
             <TextType
