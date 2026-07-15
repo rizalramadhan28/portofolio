@@ -58,7 +58,7 @@ export default function HeroSection() {
               <SplitText
                 text={personalData.name}
                 tag="h1"
-                className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-0 uppercase tracking-wide"
+                className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-0"
                 delay={80}
                 duration={0.8}
                 ease="power3.out"
