@@ -52,6 +52,7 @@ const SplitText = ({
     } else {
       document.fonts.ready.then(() => {
         setFontsLoaded(true);
+        ScrollTrigger.refresh();
       });
     }
   }, []);
@@ -127,6 +128,7 @@ const SplitText = ({
               force3D: true,
             }
           );
+          requestAnimationFrame(() => ScrollTrigger.refresh());
           return tween;
         },
       });
