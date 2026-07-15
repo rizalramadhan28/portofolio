@@ -5,13 +5,12 @@ import { ArrowDown, Mail, FileDown } from "lucide-react";
 import { personalData } from "@/lib/data";
 import LiquidEther from "./LiquidEther";
 import ErrorBoundary from "./ErrorBoundary";
-import SplitText from "./SplitText";
 import TextType from "./TextType";
+import RotatingText from "./RotatingText";
 
 const LIQUID_COLORS: string[] = ["#5227FF", "#FF9FFC", "#B497CF"];
+const NAME_TEXTS: string[] = ["Rizal Ramadhan"];
 const ROLE_TEXTS: string[] = ["Fullstack Developer", "Networking Enthusiast", "Web Developer"];
-const SPLIT_FROM = { opacity: 0, y: 50, rotateX: -90 };
-const SPLIT_TO = { opacity: 1, y: 0, rotateX: 0 };
 
 export default function HeroSection() {
   return (
@@ -45,22 +44,24 @@ export default function HeroSection() {
             Hello, I&apos;m
           </p>
 
-          <div style={{ fontFamily: "var(--font-playfair), serif" }}>
-            <SplitText
-              text={personalData.name}
-              tag="h1"
-              className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6"
-              delay={80}
-              duration={0.8}
-              ease="power3.out"
-              splitType="chars"
-              from={SPLIT_FROM}
-              to={SPLIT_TO}
-              threshold={0.1}
-              rootMargin="-50px"
-              textAlign="center"
+          <h1
+            className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
+            <RotatingText
+              texts={NAME_TEXTS}
+              mainClassName="overflow-hidden justify-center"
+              staggerFrom="first"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "-120%", opacity: 0 }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={999999}
+              auto={false}
             />
-          </div>
+          </h1>
 
           <div className="relative inline-block">
             <TextType
