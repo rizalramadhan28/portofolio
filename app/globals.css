@@ -63,3 +63,7 @@ html {
     border-radius: 24px;
   }
 }
+
+.font-playfair {
+  font-family: var(--font-playfair), serif;
+}
