@@ -1,7 +1,7 @@
 'use client';
 
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Transition, type Variant } from 'framer-motion';
 
 import './RotatingText.css';
 
@@ -9,7 +9,28 @@ function cn(...classes: (string | undefined | false | null)[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-const RotatingText = forwardRef((props: any, ref) => {
+interface RotatingTextProps {
+  texts: string[];
+  mainClassName?: string;
+  splitLevelClassName?: string;
+  elementLevelClassName?: string;
+  initial?: Variant;
+  animate?: Variant;
+  exit?: Variant;
+  animatePresenceMode?: 'wait' | 'sync' | 'popLayout';
+  animatePresenceInitial?: boolean;
+  rotationInterval?: number;
+  staggerDuration?: number;
+  staggerFrom?: 'first' | 'last' | 'center' | 'random' | number;
+  transition?: Transition;
+  loop?: boolean;
+  auto?: boolean;
+  splitBy?: 'characters' | 'words' | 'lines' | string;
+  onNext?: (index: number) => void;
+  [key: string]: any;
+}
+
+const RotatingText = forwardRef<any, RotatingTextProps>((props, ref) => {
   const {
     texts,
     transition = { type: 'spring', damping: 25, stiffness: 300 },
@@ -62,7 +83,6 @@ const RotatingText = forwardRef((props: any, ref) => {
         needsSpace: i !== arr.length - 1
       }));
     }
-
     return currentText.split(splitBy).map((part: string, i: number, arr: string[]) => ({
       characters: [part],
       needsSpace: i !== arr.length - 1
