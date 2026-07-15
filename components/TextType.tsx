@@ -25,7 +25,7 @@ const TextType = ({
   reverseMode = false,
   ...props
 }: {
-  text: string | readonly string[];
+  text: string | string[];
   as?: React.ElementType;
   typingSpeed?: number;
   initialDelay?: number;

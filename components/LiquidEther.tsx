@@ -15,7 +15,7 @@ interface LiquidEtherProps {
   BFECC?: boolean;
   resolution?: number;
   isBounce?: boolean;
-  colors?: readonly string[];
+  colors?: string[];
   autoDemo?: boolean;
   autoSpeed?: number;
   autoIntensity?: number;

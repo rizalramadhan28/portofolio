@@ -8,10 +8,10 @@ import ErrorBoundary from "./ErrorBoundary";
 import SplitText from "./SplitText";
 import TextType from "./TextType";
 
-const LIQUID_COLORS = ["#5227FF", "#FF9FFC", "#B497CF"] as const;
-const ROLE_TEXTS = ["Fullstack Developer", "Networking Enthusiast", "Web Developer"] as const;
-const SPLIT_FROM = { opacity: 0, y: 50, rotateX: -90 } as const;
-const SPLIT_TO = { opacity: 1, y: 0, rotateX: 0 } as const;
+const LIQUID_COLORS: string[] = ["#5227FF", "#FF9FFC", "#B497CF"];
+const ROLE_TEXTS: string[] = ["Fullstack Developer", "Networking Enthusiast", "Web Developer"];
+const SPLIT_FROM = { opacity: 0, y: 50, rotateX: -90 };
+const SPLIT_TO = { opacity: 1, y: 0, rotateX: 0 };
 
 export default function HeroSection() {
   return (
