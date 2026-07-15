@@ -52,7 +52,7 @@ export default function HeroSection() {
             animationSpeed={5}
             showBorder={false}
             direction="horizontal"
-            className="font-playfair text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6 backdrop-blur-none"
+            className="font-playfair"
           >
             <SplitText
               text={personalData.name}
