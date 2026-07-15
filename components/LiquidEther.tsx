@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import * as THREE from "three";
 import "./LiquidEther.css";
 
@@ -24,7 +24,7 @@ interface LiquidEtherProps {
   autoRampDuration?: number;
 }
 
-export default function LiquidEther({
+function LiquidEther({
   mouseForce = 20,
   cursorSize = 100,
   isViscous = false,
@@ -50,6 +50,7 @@ export default function LiquidEther({
   const intersectionObserverRef = useRef<IntersectionObserver | null>(null);
   const isVisibleRef = useRef(true);
   const resizeRafRef = useRef<number | null>(null);
+  const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -924,7 +925,10 @@ export default function LiquidEther({
         this.fboSize.set(width, height);
       }
       resize() {
+        const prevW = this.fboSize.x;
+        const prevH = this.fboSize.y;
         this.calcSize();
+        if (this.fboSize.x === prevW && this.fboSize.y === prevH) return;
         for (let key in this.fbos) {
           this.fbos[key]!.setSize(this.fboSize.x, this.fboSize.y);
         }
@@ -1044,7 +1048,10 @@ export default function LiquidEther({
         this.output = new Output();
       }
       resize() {
+        const prevW = Common.width;
+        const prevH = Common.height;
         Common.resize();
+        if (Common.width === prevW && Common.height === prevH) return;
         this.output!.resize();
       }
       render() {
@@ -1130,27 +1137,29 @@ export default function LiquidEther({
     const io = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        const isVisible = entry.isIntersecting && entry.intersectionRatio > 0;
-        isVisibleRef.current = isVisible;
+        isVisibleRef.current = entry.isIntersecting;
         if (!webglRef.current) return;
-        if (isVisible && !document.hidden) {
+        if (entry.isIntersecting && !document.hidden) {
           webglRef.current.start();
-        } else {
+        } else if (!entry.isIntersecting) {
           webglRef.current.pause();
         }
       },
-      { threshold: [0, 0.01, 0.1] }
+      { threshold: 0 }
     );
     io.observe(container);
     intersectionObserverRef.current = io;
 
     const ro = new ResizeObserver(() => {
       if (!webglRef.current) return;
+      if (resizeTimeoutRef.current) clearTimeout(resizeTimeoutRef.current);
       if (resizeRafRef.current) cancelAnimationFrame(resizeRafRef.current);
-      resizeRafRef.current = requestAnimationFrame(() => {
-        if (!webglRef.current) return;
-        webglRef.current.resize();
-      });
+      resizeTimeoutRef.current = setTimeout(() => {
+        resizeRafRef.current = requestAnimationFrame(() => {
+          if (!webglRef.current) return;
+          webglRef.current.resize();
+        });
+      }, 150);
     });
     ro.observe(container);
     resizeObserverRef.current = ro;
@@ -1163,6 +1172,8 @@ export default function LiquidEther({
     return () => {
       disposed = true;
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (resizeTimeoutRef.current) clearTimeout(resizeTimeoutRef.current);
+      if (resizeRafRef.current) cancelAnimationFrame(resizeRafRef.current);
       if (resizeObserverRef.current) {
         try {
           resizeObserverRef.current.disconnect();
@@ -1259,3 +1270,5 @@ export default function LiquidEther({
     />
   );
 }
+
+export default memo(LiquidEther);

@@ -8,6 +8,11 @@ import ErrorBoundary from "./ErrorBoundary";
 import SplitText from "./SplitText";
 import TextType from "./TextType";
 
+const LIQUID_COLORS = ["#5227FF", "#FF9FFC", "#B497CF"] as const;
+const ROLE_TEXTS = ["Fullstack Developer", "Networking Enthusiast", "Web Developer"] as const;
+const SPLIT_FROM = { opacity: 0, y: 50, rotateX: -90 } as const;
+const SPLIT_TO = { opacity: 1, y: 0, rotateX: 0 } as const;
+
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -18,7 +23,7 @@ export default function HeroSection() {
             cursorSize={100}
             isViscous
             viscous={30}
-            colors={["#5227FF","#FF9FFC","#B497CF"]}
+            colors={LIQUID_COLORS}
             autoDemo
             autoSpeed={0.5}
             autoIntensity={2.2}
@@ -49,8 +54,8 @@ export default function HeroSection() {
               duration={0.8}
               ease="power3.out"
               splitType="chars"
-              from={{ opacity: 0, y: 50, rotateX: -90 }}
-              to={{ opacity: 1, y: 0, rotateX: 0 }}
+              from={SPLIT_FROM}
+              to={SPLIT_TO}
               threshold={0.1}
               rootMargin="-50px"
               textAlign="center"
@@ -59,7 +64,7 @@ export default function HeroSection() {
 
           <div className="relative inline-block">
             <TextType
-              text={["Fullstack Developer", "Networking Enthusiast", "Web Developer"]}
+              text={ROLE_TEXTS}
               as="h2"
               className="text-xl sm:text-2xl md:text-3xl font-semibold text-accent mb-6"
               typingSpeed={75}
