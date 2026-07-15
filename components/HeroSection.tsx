@@ -47,17 +47,30 @@ export default function HeroSection() {
             Hello, I&apos;m
           </p>
 
-          <GradientText
-            colors={GRADIENT_NAME_COLORS}
-            animationSpeed={5}
-            showBorder={false}
-            direction="horizontal"
-            className="font-playfair"
-          >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold">
-              {personalData.name}
-            </h1>
-          </GradientText>
+          <div className="mb-6">
+            <GradientText
+              colors={GRADIENT_NAME_COLORS}
+              animationSpeed={5}
+              showBorder={false}
+              direction="horizontal"
+              className="font-playfair"
+            >
+              <SplitText
+                text={personalData.name}
+                tag="h1"
+                className="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-0 uppercase tracking-wide"
+                delay={80}
+                duration={0.8}
+                ease="power3.out"
+                splitType="chars"
+                from={SPLIT_FROM}
+                to={SPLIT_TO}
+                threshold={0.1}
+                rootMargin="-50px"
+                textAlign="center"
+              />
+            </GradientText>
+          </div>
 
           <div className="relative inline-block">
             <TextType
